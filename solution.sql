@@ -1,13 +1,3 @@
-/*
-   SQL Assignment: Joins
-   Course: PWSkills
-   Description: Database setup and solutions for Questions 1-9
-*/
-
--- ==========================================
--- PART 1: DATABASE SETUP
--- ==========================================
-
 -- 1. Create and Populate Customers Table
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY,
@@ -65,9 +55,6 @@ INSERT INTO Employees (EmployeeID, EmployeeName, ManagerID) VALUES
 (4, 'David Kim', 2),
 (5, 'Eva Smith', 2);
 
--- ==========================================
--- PART 2: ASSIGNMENT QUESTIONS & SOLUTIONS
--- ==========================================
 
 -- Question 1: Retrieve all customers who have placed at least one order.
 SELECT DISTINCT c.CustomerID, c.CustomerName 
@@ -85,7 +72,6 @@ FROM Customers c
 RIGHT JOIN Orders o ON c.CustomerID = o.CustomerID;
 
 -- Question 4: Display all customers and orders, whether matched or not.
--- (MySQL does not support FULL JOIN, so we use UNION of LEFT and RIGHT JOINs)
 SELECT c.CustomerName, o.OrderID 
 FROM Customers c
 LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
